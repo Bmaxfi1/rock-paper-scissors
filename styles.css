@@ -1,0 +1,51 @@
+body {
+  font-family: 'Oxanium', cursive;
+  margin: auto;
+}
+.header {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  margin: 0px;
+  border-bottom: black solid 1px;
+}
+.instructions {
+  display: flex;
+  justify-content: space-evenly;
+  padding-bottom: 5px;
+  padding-top: 5px;
+  font-size: 20px;
+}
+.choices {
+  display: flex;
+  justify-content: space-around;
+}
+.scorekeeping {
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 5px;
+  padding-top: 5px;
+}
+.win-div {
+  display: flex;
+}
+.loss-div {
+  display: flex;
+}
+.tie-div {
+  display: flex;
+}
+
+#user-guess {
+  padding: 10px;
+}
+#computer-guess {
+  padding: 10px;
+}
+#who-won {
+  display: flex;
+  justify-content: space-evenly;
+  padding: 10px;
+  font-size: 20px;
+}

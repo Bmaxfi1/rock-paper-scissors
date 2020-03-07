@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+    <link href="https://fonts.googleapis.com/css?family=Oxanium&display=swap" rel="stylesheet">
+    <title>Rock Paper Scissors Part 1</title>
+  </head>
+
+  <body>
+    <h1 class="header">
+      Rock Paper Scissors
+    </h1>
+    <div class="instructions">press R, P, or S on your keyboard now.</div>
+    <div class="choices">
+      <div id="user-guess"></div>
+      <div id="computer-guess"></div>
+    </div>
+    <div id="who-won"></div>
+    <div class="scorekeeping">
+      <div class="win-div">
+        <div>wins:</div>
+        <div id="win-count"></div>
+      </div>
+      <div class="tie-div">
+        <div>ties:</div>
+        <div id="tie-count"></div>
+      </div>
+      <div class="loss-div">
+        <div>losses:</div>
+        <div id="loss-count"></div>
+      </div>
+
+    </div>
+
+    <script type="text/javascript">
+      //JS RPS game
+
+      var userGuessEl = document.getElementById("user-guess");
+      var computerGuessEl = document.getElementById("computer-guess");
+      var whoWonEl = document.getElementById("who-won");
+      var winCount = document.getElementById("win-count");
+      var lossCount = document.getElementById("loss-count");
+      var tieCount = document.getElementById("tie-count");
+
+      document.onkeyup = function(event) {
+        var keyInput = event.key;
+        var compGuess = Math.floor(Math.random() * 3);
+        var rpsArray = ["r", "p", "s"];
+
+        if (keyInput === "r" || keyInput === "p" || keyInput === "s") {
+          userGuessEl.textContent = "You guessed " + keyInput;
+          computerGuessEl.textContent =
+            "Computer guessed " + rpsArray[compGuess];
+        }
+        if (
+          (compGuess === 0 && keyInput === "r") ||
+          (compGuess === 1 && keyInput === "p") ||
+          (compGuess === 2 && keyInput === "s")
+        ) {
+          whoWonEl.textContent = "Tied!";
+        }
+        if (
+          (compGuess === 0 && keyInput === "p") ||
+          (compGuess === 1 && keyInput === "s") ||
+          (compGuess === 2 && keyInput === "r")
+        ) {
+          whoWonEl.textContent = "You win!";
+        }
+        if (
+          (compGuess === 0 && keyInput === "s") ||
+          (compGuess === 1 && keyInput === "r") ||
+          (compGuess === 2 && keyInput === "p")
+        ) {
+          whoWonEl.textContent = "You lose...";
+        }
+
+        if (whoWonEl.textContent === "You win!") {
+          winCount.textContent++;
+        }
+        if (whoWonEl.textContent === "You lose...") {
+          lossCount.textContent++;
+        }
+        if (whoWonEl.textContent === "Tied!") {
+          tieCount.textContent++;
+        }
+      };
+    </script>
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+      integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+      integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+      integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
